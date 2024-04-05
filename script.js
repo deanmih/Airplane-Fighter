@@ -3,7 +3,7 @@ let ctx = canvas.getContext('2d');
 let score = 0;
 let scoreBox2 = document.getElementById("scoreBox2");
 let playerXcoord = 375;
-let payerYcoord = 750;
+let playerYcoord = 750;
 let speedRight = 0;
 let speedLeft = 0;
 let gameIsRunning = true;
@@ -20,7 +20,7 @@ function generatePlayer() {
 
 function drawPlayer() {
     ctx.fillStyle = "black";
-    ctx.fillRect(playerXcoord, payerYcoord, 50, 50);
+    ctx.fillRect(playerXcoord, playerYcoord, 50, 50);
 }
 
 function updateCanvas() {
@@ -53,7 +53,7 @@ addEventListener("keyup", function(e) {
 let projectiles = [];
 
 function projectileStartCoordinates() {
-    let projectileData = [playerXcoord + 20, payerYcoord];
+    let projectileData = [playerXcoord + 20, playerYcoord];
     projectiles.push(projectileData);
 }
 
@@ -106,8 +106,8 @@ function checkCollisions() {
         if (
             playerXcoord < obstacles[i][0] + 50 &&
             playerXcoord + 50 > obstacles[i][0] &&
-            payerYcoord < obstacles[i][1] + 50 &&
-            payerYcoord + 50 > obstacles[i][1]
+            playerYcoord < obstacles[i][1] + 50 &&
+            playerYcoord + 50 > obstacles[i][1]
         ) {
             handlePlayerCollision();
         }
@@ -143,4 +143,3 @@ function handlePlayerCollision() {
 function refreshGame() {
     location.reload();
 }
-
